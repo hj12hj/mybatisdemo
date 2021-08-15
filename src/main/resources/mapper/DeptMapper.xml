@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatisdemo.mapper.DeptMapper">
+
+<resultMap id="stumap" type="com.example.mybatisdemo.pojo.Dept">
+    <id column="id" property="id" />
+    <result property="age" column="age"/>
+    <result property="name" column="name"/>
+    <association property="stu" javaType="com.example.mybatisdemo.pojo.Stu" >
+        <id property="id" column="id"/>
+        <result property="name" column="sname"/>
+        <result property="deptId" column="dept_id"/>
+        <collection property="teaList" ofType="com.example.mybatisdemo.pojo.Tea">
+            <id column="tid" property="id" />
+            <result property="name" column="tname"/>
+            <result property="stuId" column="stu_id"/>
+        </collection>
+    </association>
+
+
+</resultMap>
+    
+    
+    
+    <select id="findAll" resultMap="stumap" >
+        select d.name,s.id,s.name as sname,s.dept_id,t.name as tname,t.id as tid ,t.stu_id from dept d left join stu s on d.id = s.dept_id
+left join  tea t on s.id = t.stu_id
+    </select>
+
+</mapper>
