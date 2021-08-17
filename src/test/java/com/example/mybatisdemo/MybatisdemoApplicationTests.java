@@ -34,6 +34,11 @@ class MybatisdemoApplicationTests {
 
     @Test
     void hh(){
-        teaMapper.update(new Tea(1,"hhh",1));
+
+
+        teaMapper.inseartOne(new Tea(1,"22",3));
     }
+
+
+
 }

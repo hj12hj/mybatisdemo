@@ -17,4 +17,6 @@ public interface TeaMapper {
 
     void update(Tea tea);
 
+    void inseartOne(Tea tea);
+
 }

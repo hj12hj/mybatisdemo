@@ -3,6 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mybatisdemo.mapper.TeaMapper">
+    <insert id="inseartOne">
+        insert into tea values (#{id},#{name},#{stuId})
+    </insert>
 
     <update id="update">
         update tea
