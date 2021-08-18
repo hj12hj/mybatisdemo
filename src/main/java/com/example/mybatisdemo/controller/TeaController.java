@@ -1,15 +1,14 @@
 package com.example.mybatisdemo.controller;
 
+import com.example.mybatisdemo.pojo.Dept;
 import com.example.mybatisdemo.pojo.Stu;
 import com.example.mybatisdemo.pojo.Tea;
 import com.sun.deploy.net.HttpRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,12 +27,18 @@ public class TeaController {
 
 
     @PostMapping("/list")
-    @ApiOperation(value ="获取用户全部信息",notes = "注意这里没有分页")
-    @ApiImplicitParam(name="stu",value = "用户实体",required = true,dataType = "Stu")
-    public String list(@RequestBody Stu stu, HttpServletRequest request){
-        System.out.println(stu);
+    @ApiOperation(value ="获取用户全部信息")
+    @ApiImplicitParam(name="dept",value = "用户实体",required = true,dataType = "Dept")
+    public String list(@RequestBody Dept dept, HttpServletRequest request){
+        System.out.println(dept);
         System.out.println(request.getHeader("token"));
         return "list";
+    }
+
+    @GetMapping("/get")
+    @ApiOperation(value ="获取用户单挑信息")
+    public String get(@RequestParam @ApiParam(name="id",value = "用户id",required = true) String  id){
+        return id;
     }
 
 }
