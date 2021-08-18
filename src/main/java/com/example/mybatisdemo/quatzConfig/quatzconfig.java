@@ -32,7 +32,7 @@ public class quatzconfig {
 
     @PreDestroy
     void doBeforeExit(){
-//        teaMapper.inseartOne(new Tea(3,"2",2));
+        teaMapper.inseartOne(new Tea(3,"2",2));
         System.out.println("--------------------------");
     }
 

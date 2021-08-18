@@ -1,5 +1,6 @@
 package com.example.mybatisdemo.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 @Data
 public class Stu {
+    @ApiModelProperty(value="用户ID",name="id",example="111",required = true)
     Integer id;
     String name;
     Integer deptId;

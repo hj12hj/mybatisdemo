@@ -36,7 +36,7 @@ class MybatisdemoApplicationTests {
     void hh(){
 
 
-        teaMapper.inseartOne(new Tea(1,"22",3));
+      //  teaMapper.inseartOne(new Tea(1,"22",3));
     }
 
 

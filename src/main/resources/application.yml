@@ -16,3 +16,5 @@ mybatis:
 logging:
   level:
     com.example.mybatisdemo.mapper : debug
+
+isEnable: true

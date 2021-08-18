@@ -30,14 +30,22 @@ public class QuatzController {
 
     @GetMapping("/start")
   public   String  task1(){
+
+        if (null!=future) {
+
+
+
       future  =  threadPoolTaskScheduler.schedule(new Task1(), new Trigger() {
             @Override
             public Date nextExecutionTime(TriggerContext triggerContext) {
+
                 return new CronTrigger("0/2 * * * * ?").nextExecutionTime(triggerContext);
             }
         });
 
-      return "Start successfully!";
+      return "Start successfully!";}
+
+        return "failed!";
     }
 
     @GetMapping("/stop")
